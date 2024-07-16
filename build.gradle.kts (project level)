@@ -1,0 +1,17 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral() // Add mavenCentral for other dependencies
+    }
+
+    dependencies {
+        val navVersion = "2.7.5"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion")
+        classpath("com.android.tools.build:gradle:8.5.0-beta02") // Add AGP here
+    }
+}
+
+plugins {
+    // Remove plugin declarations here, they will be applied in the module-level file
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13" apply false // Keep KSP here
+}
