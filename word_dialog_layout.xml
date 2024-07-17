@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
@@ -18,13 +19,16 @@
             android:id="@+id/word_text_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter word here" />
+            android:hint="Enter word here"
+            android:minHeight="48dp"
+            tools:ignore="TextFields" />
 
         <EditText
             android:id="@+id/meaning_text_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter meaning here" />
+            android:hint="Enter meaning here"
+            android:minHeight="48dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
