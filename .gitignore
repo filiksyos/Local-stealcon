@@ -1,33 +1,25 @@
-# Gradle files
-.gradle/
-build/
+package com.example.localstealcon.MainFragments
 
-# Local configuration file (sdk path, etc)
-local.properties
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.example.localstealcon.DialogFragments.AddVictimDialog
+import com.example.localstealcon.DialogFragments.AddWordDialog
+import com.example.localstealcon.R
 
-# Log/OS Files
-*.log
+class WordFragment : Fragment() {
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output.json
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_word, container, false)
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
-
-# Keystore files
-*.jks
-*.keystore
-
-# Google Services (e.g. APIs or Firebase)
-google-services.json
-
-# Android Profiling
-*.hprof
+        val addWordDialog =  AddWordDialog()
+        addWordDialog.show(childFragmentManager, "add_victim_dialog")
+    }
+    
+}
