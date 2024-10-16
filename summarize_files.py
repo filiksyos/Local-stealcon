@@ -3,12 +3,15 @@ import os
 def summarize_file(file_path):
     """Summarize the content of a file by extracting the first few lines."""
     summary_lines = []
-    with open(file_path, 'r') as file:
-        # Read first 10 lines or less
-        for i, line in enumerate(file):
-            if i >= 10:
-                break;
-            summary_lines.append(line.strip())
+    try:
+        with open(file_path, 'r') as file:
+            # Read first 10 lines or less
+            for i, line in enumerate(file):
+                if i >= 10:
+                    break
+                summary_lines.append(line.strip())
+    except Exception as e:
+        summary_lines.append(f"Error reading file {file_path}: {str(e)}")
     return summary_lines
 
 def write_summary(output_path, summaries):
@@ -23,14 +26,14 @@ def write_summary(output_path, summaries):
 
 if __name__ == "__main__":
     # Define files to summarize
-    files_to_summarize = ['addvictimdialog', 'addworddialog']
+    files_to_summarize = ['AddVictimDialog.kt', 'AddWordDialog.kt']
 
     summaries = {}
     for file in files_to_summarize:
         if os.path.exists(file):
             summaries[file] = summarize_file(file)
         else:
-            summaries[file] = ["File not found."]
+            summaries[file] = [f"File '{file}' not found."]
 
     # Output summary to summary.txt
     write_summary('summary.txt', summaries)
