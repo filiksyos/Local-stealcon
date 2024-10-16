@@ -1,6 +1,6 @@
 name: Summarize Files
 
-# Trigger on push to the main branch
+# Trigger on every commit to the main branch
 on:
   push:
     branches:
