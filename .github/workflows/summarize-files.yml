@@ -1,0 +1,33 @@
+name: Summarize Files
+
+# Trigger on push to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  summarize-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run summary script
+        run: |
+          python summarize_files.py
+
+      - name: Commit and push summary
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions@github.com"
+          git add summary.txt
+          git commit -m "Update summary.txt with latest changes"
+          git push
+        if: success()
